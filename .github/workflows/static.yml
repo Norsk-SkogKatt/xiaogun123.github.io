@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>我的博客</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <header> <h1>我的博客</h1> </header>
+    <nav>
+        <ul>
+            <li><a href="#">首页</a></li>
+            <li><a href="#">技术</a></li>
+            <li><a href="#">生活</a></li>
+            <li><a href="#">关于我</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <article>
+            <header>
+                <h2>我的第一篇博客</h2>
+                <p>发布日期：2022年1月1日</p>
+            </header>
+            <section>
+                <p>欢迎来到我的博客！这是我的第一篇博客，我打算在这里分享一些我平时的学习和生活心得，希望能够对大家有所帮助。</p>
+                <p>我是一名软件工程师，平时喜欢研究各种新技术，也喜欢阅读各种书籍，不仅是技术类的，还有人生类的。我觉得人生需要不断学习和成长，才能更好地面对未来的挑战。</p>
+                <p>这个博客是用HTML和CSS手写的，虽然不是很华丽，但是非常简洁明了。给大家提供一个学HTML和CSS的好参考。</p>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2022-2023 All Rights Reserved</p>
+    </footer>
+</body>
+</html>
