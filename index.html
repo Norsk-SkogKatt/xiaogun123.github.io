@@ -1,38 +1,47 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>我的博客</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-</head>
-<body>
-    <header> <h1>我的博客</h1> </header>
-    <nav>
-        <ul>
-            <li><a href="#">首页</a></li>
-            <li><a href="#">技术</a></li>
-            <li><a href="#">生活</a></li>
-            <li><a href="#">关于我</a></li>
-        </ul>
-    </nav>
+# Simple workflow for deploying static content to GitHub Pages
+name: Deploy static content to Pages
 
-    <main>
-        <article>
-            <header>
-                <h2>我的第一篇博客</h2>
-                <p>发布日期：2022年1月1日</p>
-            </header>
-            <section>
-                <p>欢迎来到我的博客！这是我的第一篇博客，我打算在这里分享一些我平时的学习和生活心得，希望能够对大家有所帮助。</p>
-                <p>我是一名软件工程师，平时喜欢研究各种新技术，也喜欢阅读各种书籍，不仅是技术类的，还有人生类的。我觉得人生需要不断学习和成长，才能更好地面对未来的挑战。</p>
-                <p>这个博客是用HTML和CSS手写的，虽然不是很华丽，但是非常简洁明了。给大家提供一个学HTML和CSS的好参考。</p>
-            </section>
-        </article>
-    </main>
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
 
-    <footer>
-        <p>&copy; 2022-2023 All Rights Reserved</p>
-    </footer>
-</body>
-</html>
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  # Single deploy job since we're just deploying
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          # Upload entire repository
+          path: '.'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
+
+      - name: Blog deploy
+  # You may pin to the exact commit or the version.
+  # uses: maxlxq/blog-deploy@e3ceec95bb3ab842eadd00b768cec266c498fcd8
+  uses: FC6540/blog-deploy@1.0.1
